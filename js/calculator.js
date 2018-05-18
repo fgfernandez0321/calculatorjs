@@ -145,6 +145,7 @@ class Calculator {
 
 $(function() {
     let calculator = new Calculator();
+    let calculations = $(".calculations");
     let display = $(".display");
     let displayedExpression = '';
     let calculationTemplate = '<div class="col-9">{{ expression }}</div><div class="col-3 text-right">= {{ result }}</div>';
@@ -188,7 +189,8 @@ $(function() {
             .replace("{{ expression }}", calculation.displayedExpression)
             .replace("{{ result }}", calculation.beautyResult);
 
-        $(".calculations").append(calculationHTML);
+        // scrollTop property to put scroll to bottom.
+        calculations.append(calculationHTML).animate({scrollTop: calculations.height()});
     }
 
     /**
@@ -214,57 +216,44 @@ $(function() {
     $(".btn").click(function(event) {
         switch(this.innerText) {
             case '×':
-                console.log('*');
                 update(this.innerText, '*');
                 break;
 
             case '÷':
-                console.log('/');
                 update(this.innerText, '/');
                 break;
 
             case '−':
-                console.log('-');
                 update(this.innerText, '-');
                 break;
 
             case '^':
-                console.log('Sup');
                 update(this.innerText, '^');
                 break;
 
             case '√':
                 // keeping in mind sqrt(9) I mean () behind the scenes
-                console.log('sqrt');
                 update(this.innerText, 'sqrt');
                 break;
 
             case '=':
-                console.log('=');
                 const result = calculator.evaluate();
                 calculator.save(displayedExpression, result);
                 clear();
                 update(result, '=');
-                console.log("calculations", calculator.calculations);
                 break;
 
             case 'C':
-                console.log('Clear');
                 clear();
                 break;
 
             case '⌫':
-                console.log('Backspace');
                 update(this.innerText, 'Backspace');
                 break;
 
             default:
-                console.log(this.innerText);
                 update(this.innerText, this.innerText);
         }
-
-        console.log('Current Expression', calculator.currentExpression);
-
     });
 
     // Reloading calculations if there are in session.
