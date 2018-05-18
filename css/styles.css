@@ -47,6 +47,16 @@
     padding: 12px;
     border: 1px solid darkgray;
     border-radius: 5px;
+
+    /*background: #141E30;  !* fallback for old browsers *!*/
+    /*background: -webkit-linear-gradient(to right, #243B55, #141E30);  !* Chrome 10-25, Safari 5.1-6 *!*/
+    /*background: linear-gradient(to right, #243B55, #141E30); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+
+    /*background: #ff0084;  !* fallback for old browsers *!*/
+    /*background: -webkit-linear-gradient(to right, #33001b, #ff0084);  !* Chrome 10-25, Safari 5.1-6 *!*/
+    /*background: linear-gradient(to right, #33001b, #ff0084); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+
+
 }
 
 /* Vertically center .container using "Flex" box way */
@@ -55,6 +65,29 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
+}
+
+.brand {
+    font-family: 'Orbitron-Bold', sans-serif;
+    margin-bottom: 0;
+}
+
+hr {
+    margin-top: 0;
+}
+
+.solar {
+    margin-right: 0;
+}
+
+.solar div {
+    background: #070000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #070000, #4C0001, #070000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #070000, #4C0001, #070000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.border-left {
+    border-left: 1px solid white;
 }
 
 button {
@@ -71,7 +104,6 @@ button {
 .space-between-rows {
     margin-top: 12px;
 }
-
 
 /* remove scroll vertical bar */
 /*.calculations::-webkit-scrollbar {*/
@@ -93,6 +125,8 @@ button {
     overflow-y: scroll;
     margin: 0;
     color: gray;
+    font-size: small;
+    font-family: 'Orbitron-Regular', sans-serif;
 }
 
 .display {
