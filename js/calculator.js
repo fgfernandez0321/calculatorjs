@@ -190,7 +190,7 @@ $(function() {
             .replace("{{ result }}", calculation.beautyResult);
 
         // scrollTop property to put scroll to bottom.
-        calculations.append(calculationHTML).animate({scrollTop: calculations.height()});
+        calculations.append(calculationHTML).animate({scrollTop: calculations.height() * 2});
     }
 
     /**
