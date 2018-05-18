@@ -1,0 +1,116 @@
+/* Fonts */
+
+@font-face {
+    font-family: Orbitron-Regular;
+    src: url('../fonts/Orbitron-Regular.ttf');
+}
+
+@font-face {
+    font-family: Orbitron-Medium;
+    src: url('../fonts/Orbitron-Medium.ttf');
+}
+
+@font-face {
+    font-family: Orbitron-Black;
+    src: url('../fonts/Orbitron-Black.ttf');
+}
+
+@font-face {
+    font-family: Orbitron-Bold;
+    src: url('../fonts/Orbitron-Bold.ttf');
+}
+
+@font-face {
+    font-family: digital-seven;
+    src: url('../fonts/digital-7.ttf');
+}
+
+@font-face {
+    font-family: digital-seven-italic;
+    src: url('../fonts/digital-7-italic.ttf');
+}
+
+@font-face {
+    font-family: digital-seven-mono;
+    src: url('../fonts/digital-7-mono.ttf');
+}
+
+@font-face {
+    font-family: digital-seven-mono-italic;
+    src: url('../fonts/digital-7-mono-italic.ttf');
+}
+
+/* Customizing container "width" property to define workspace calculator */
+.container {
+    /*width: 320px;*/
+    width: 460px;
+    padding: 12px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}
+
+/* Vertically center .container using "Flex" box way */
+body {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    width: 65px;
+    height: 45px;
+    font-family: 'Orbitron-Regular', sans-serif;
+    border: none;
+    border-radius: 5px;
+    outline: none !important;
+    /*position: relative;*/
+    /*transition: all 0.1s;*/
+}
+
+.space-between-rows {
+    margin-top: 12px;
+}
+
+
+/* remove scroll vertical bar */
+/*.calculations::-webkit-scrollbar {*/
+    /*width: 1px;*/
+/*}*/
+
+#equal {
+    width: 140px;
+}
+
+#percentage {
+    visibility: hidden;
+}
+
+.calculations {
+    resize: none;
+    height: 100px;
+    max-height: 100px;
+    overflow-y: scroll;
+    margin: 0;
+    color: gray;
+}
+
+.display {
+    font-family: 'Orbitron-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    border: 1px solid darkgray;
+}
+
+form {
+    width: 294px;
+    border-radius: .25rem;
+}
+
+form input {
+    background-color: inherit;
+    border: none;
+    width: 294px;
+    margin: 0 auto;
+    display: block;
+}

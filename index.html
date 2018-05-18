@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator JS</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Calculator JS with the following operations: +, -, *, /, ** and sqrt.">
+    <meta name="keywords" content="HTML,CSS,JavaScript,Bootstrap 4,JQuery">
+    <meta name="author" content="Frank Gonzalez Fernandez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <div class="row calculations">
+                <!--<div class="col-10">9 + 8<sup>3</sup></div>-->
+                <!--<div class="col-2">= 17</div>-->
+            </div>
+
+            <input type="text" class="form-control text-right display space-between-rows">
+
+            <div class="d-flex justify-content-between space-between-rows">
+                <button id="seven" type="button" class="btn btn-secondary">&#55;</button>
+                <button id="eight" type="button" class="btn btn-secondary">&#56;</button>
+                <button id="nine" type="button" class="btn btn-secondary">&#57;</button>
+                <button id="divide" type="button" class="btn btn-dark">&#247;</button>
+                <button id="clear" type="button" class="btn btn-danger">&#67;</button>
+                <button id="backspace" type="button" class="btn btn-danger">&#9003;</button>
+            </div>
+
+
+            <div class="d-flex justify-content-between space-between-rows">
+                <button id="four" type="button" class="btn btn-secondary">&#52;</button>
+                <button id="five" type="button" class="btn btn-secondary">&#53;</button>
+                <button id="six" type="button" class="btn btn-secondary">&#54;</button>
+                <button id="multiply" type="button" class="btn btn-dark">&#215;</button>
+                <button id="left-parenthesis" type="button" class="btn btn-dark">&#40;</button>
+                <button id="right-parenthesis" type="button" class="btn btn-dark">&#41;</button>
+            </div>
+
+
+            <div class="d-flex justify-content-between space-between-rows">
+                <button id="one" type="button" class="btn btn-secondary">&#49;</button>
+                <button id="two" type="button" class="btn btn-secondary">&#50;</button>
+                <button id="three" type="button" class="btn btn-secondary">&#51;</button>
+                <button id="subtract" type="button" class="btn btn-dark">&#8722;</button>
+                <button id="exponent" type="button" class="btn btn-dark">&#94;</button>
+                <button id="square-root" type="button" class="btn btn-dark">&#8730;</button>
+            </div>
+
+            <div class="d-flex justify-content-between space-between-rows">
+                <button id="zero" type="button" class="btn btn-secondary">&#48;</button>
+                <button id="decimal" type="button" class="btn btn-secondary">&#46;</button>
+                <button id="percentage" type="button" class="btn btn-dark">&#37;</button>
+                <button id="add" type="button" class="btn btn-dark">&#43;</button>
+                <button id="equal" type="button" class="btn btn-dark">&#61;</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Importing scripts -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/math.min.js"></script>
+<script type="text/javascript" src="js/calculator.js"></script>
+
+</body>
+</html>
