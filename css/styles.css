@@ -40,6 +40,14 @@
     src: url('../fonts/digital-7-mono-italic.ttf');
 }
 
+/* Utils */
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* Customizing container "width" property to define workspace calculator */
 .container {
     /*width: 320px;*/
@@ -81,7 +89,7 @@ hr {
     border-left: 1px solid white;
 }
 
-button {
+.calculator-buttons button {
     width: 65px;
     height: 45px;
     font-family: 'Orbitron-Regular', sans-serif;

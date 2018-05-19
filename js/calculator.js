@@ -36,7 +36,7 @@ class Calculator {
             }
 
         } catch (e) {
-            return "Error";
+            return null;
         }
     }
 
@@ -148,7 +148,8 @@ $(function() {
     let calculations = $(".calculations");
     let display = $(".display");
     let displayedExpression = '';
-    let calculationTemplate = '<div class="col-9">{{ expression }}</div><div class="col-3 text-right">= {{ result }}</div>';
+    let calculationTemplate = '<div class="col-9 truncate">{{ expression }}</div><div class="col-3 text-right truncate">= {{ result }}</div>';
+    let displayPlaceholder = false;
 
     /**
      * This function can be used to update the display calculator and expression to evaluate behind the scenes.
@@ -158,26 +159,38 @@ $(function() {
     function update(beautyValue, realValue) {
         displayedExpression = display.val();
 
-        if (realValue === "Backspace") {
-            displayedExpression = displayedExpression.slice(0, -1);
-            calculator.currentExpression.splice(-1, 1)
+        if (realValue !== "E") {
 
-        } else if (realValue === "sqrt") {
-            displayedExpression += beautyValue + '(';
-            calculator.currentExpression.push(realValue);
-            calculator.currentExpression.push('(');
+            if (displayPlaceholder) {
+                display.attr("placeholder", "");
+                displayPlaceholder = false;
+            }
 
-        } else if (realValue === '=') {
-            displayedExpression = beautyValue.beautyResult;
-            calculator.currentExpression = beautyValue.tokenResult;
-            updateHistoricalCalculation(calculator.getLastCalculation());
+            if (realValue === "Backspace") {
+                displayedExpression = displayedExpression.slice(0, -1);
+                calculator.currentExpression.splice(-1, 1);
+
+            } else if (realValue === "sqrt") {
+                displayedExpression += beautyValue + '(';
+                calculator.currentExpression.push(realValue);
+                calculator.currentExpression.push('(');
+
+            } else if (realValue === '=') {
+                displayedExpression = beautyValue.beautyResult;
+                calculator.currentExpression = beautyValue.tokenResult;
+                updateHistoricalCalculation(calculator.getLastCalculation());
+
+            } else {
+                displayedExpression += beautyValue;
+                calculator.currentExpression.push(realValue);
+            }
+
+            display.val(displayedExpression);
 
         } else {
-            displayedExpression += beautyValue;
-            calculator.currentExpression.push(realValue);
+            display.attr("placeholder", "Error");
+            displayPlaceholder = true;
         }
-
-        display.val(displayedExpression);
     }
 
     /**
@@ -213,7 +226,31 @@ $(function() {
         displayedExpression = '';
     }
 
-    $(".btn").click(function(event) {
+    /**
+     * This function can be used to show a message to the user.
+     * @param title Title message
+     * @param message Message itself.
+     */
+    function showMessage(title, message) {
+        $(".modal-title").text(title);
+        $(".modal-body").text(message);
+        $('#message').modal('show');
+    }
+
+    function evaluateExpression() {
+        const result = calculator.evaluate();
+        if (result) {
+            calculator.save(displayedExpression, result);
+            clear();
+            update(result, '=');
+
+        } else {
+            clear();
+            update(result, 'E');
+        }
+    }
+
+    $(".calculator-buttons .btn").click(function(event) {
         switch(this.innerText) {
             case '×':
                 update(this.innerText, '*');
@@ -237,10 +274,7 @@ $(function() {
                 break;
 
             case '=':
-                const result = calculator.evaluate();
-                calculator.save(displayedExpression, result);
-                clear();
-                update(result, '=');
+                evaluateExpression();
                 break;
 
             case 'C':

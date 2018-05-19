@@ -14,6 +14,26 @@
 </head>
 <body>
 
+<!-- Modal -->
+<div id="message" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="message for user" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-7">
@@ -34,7 +54,7 @@
 
     <hr>
 
-    <div class="row">
+    <div class="row calculator-buttons">
         <div class="col">
 
             <div class="row calculations">
@@ -42,7 +62,7 @@
                 <!--<div class="col-2">= 17</div>-->
             </div>
 
-            <input type="text" class="form-control text-right display space-between-rows">
+            <input type="text" class="form-control text-right display space-between-rows" value="" placeholder="">
 
             <div class="d-flex justify-content-between space-between-rows">
                 <button id="seven" type="button" class="btn btn-secondary">&#55;</button>
