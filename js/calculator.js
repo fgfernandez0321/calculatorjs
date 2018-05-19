@@ -1,10 +1,9 @@
-const calculationsInSession = 10;
-
 class Calculator {
-    constructor() {
+    constructor(calculationsToStore) {
         // currentExpression will be defined as array in order to have like tokens speaking in compilers terms.
         this.currentExpression = [];
         this.calculations = [];
+        this.calculationsToStore = calculationsToStore;
     }
 
     /**
@@ -18,6 +17,18 @@ class Calculator {
 
         } else {
             return null;
+        }
+    }
+
+    /**
+     * This function can be used to get the last 10 calculations.
+     */
+    getLastTenCalculations() {
+        if (this.calculations.length <= this.calculationsToStore) {
+            return this.calculations;
+
+        } else {
+            return this.calculations.slice(this.calculations.length - this.calculationsToStore)
         }
     }
 
@@ -54,12 +65,7 @@ class Calculator {
             beautyResult: resultExpression.beautyResult
         });
 
-        if (this.calculations.length <= calculationsInSession) {
-            Calculator._saveSession("calculations", JSON.stringify(this.calculations));
-
-        } else {
-            alert("The calculator will save the last 10 calculations performed by the user.");
-        }
+        Calculator._saveSession("calculations", JSON.stringify(this.getLastTenCalculations()));
     }
 
     /**
@@ -144,7 +150,7 @@ class Calculator {
 
 
 $(function() {
-    let calculator = new Calculator();
+    let calculator = new Calculator(10);
     let calculations = $(".calculations");
     let display = $(".display");
     let displayedExpression = '';
@@ -203,7 +209,7 @@ $(function() {
             .replace("{{ result }}", calculation.beautyResult);
 
         // scrollTop property to put scroll to bottom.
-        calculations.append(calculationHTML).animate({scrollTop: calculations.height() * 2});
+        calculations.append(calculationHTML).scrollTop(calculations.height() * 2);
     }
 
     /**
