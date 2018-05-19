@@ -243,6 +243,9 @@ $(function() {
         $('#message').modal('show');
     }
 
+    /**
+     * This function can be used to evaluate the current expression.
+     */
     function evaluateExpression() {
         const result = calculator.evaluate();
         if (result) {
