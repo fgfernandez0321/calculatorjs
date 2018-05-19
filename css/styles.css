@@ -90,6 +90,7 @@ hr {
 }
 
 .calculator-buttons button {
+    color: #fff;
     width: 65px;
     height: 45px;
     font-family: 'Orbitron-Regular', sans-serif;
@@ -99,6 +100,23 @@ hr {
     /*position: relative;*/
     /*transition: all 0.1s;*/
     box-shadow: 0 5px black;
+}
+
+.button-digit {
+    background-color: #6c757d;
+}
+
+.button-operation {
+    background-color: #343a40;
+}
+
+.button-clean {
+    background-color: #dc3545;
+}
+
+.calculator-buttons button:active {
+    box-shadow: 0 2px black;
+    transform: translateY(2px);
 }
 
 .space-between-rows {

@@ -259,7 +259,7 @@ $(function() {
         }
     }
 
-    $(".calculator-buttons .btn").click(function(event) {
+    $(".calculator-buttons button").click(function(event) {
         switch(this.innerText) {
             case '×':
                 update(this.innerText, '*');
